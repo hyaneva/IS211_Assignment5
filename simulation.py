@@ -47,7 +47,7 @@ def simulate_many_servers(requests, num_servers):
     completed_requests = []
     
     for i, request in enumerate(requests):
-        server = servers[i % num_servers]  # Round-robin distribution
+        server = servers[i % num_servers]  #Round-robin distribution
         server.queue.put(request)
 
     while any(server.queue.qsize() > 0 for server in servers):
